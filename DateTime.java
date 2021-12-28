@@ -1,6 +1,8 @@
 package com.example.testandroid1;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class DateTime {
 
@@ -114,9 +116,10 @@ public class DateTime {
         return new DateTime(minutes + dur.GetLongMinutes());
     }
 
-    //public static DateTime Now(){
-        //...
-    //}
+    public static DateTime Now(){
+        Date now = Calendar.getInstance().getTime();
+        return new DateTime(now.getYear(),now.getMonth(),now.getDay(),now.getHours(),now.getMinutes());
+    }
 
     private String TwoNums(int i){
         if(i<10) return "0"+i;
