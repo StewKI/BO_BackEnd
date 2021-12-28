@@ -70,7 +70,7 @@ public class Interval{
         return /*"("+refferedTask.GetTitle()+")"+*/ startTime.ToString() + " <--> " + endTime.ToString();
     }
 
-    //public bool NoDuration() => endTime-startTime == new TimeSpan(0);
+    public boolean NoDuration() {return GetDuration().GetLongMinutes() == 0;}
 
 
     public Interval Intersect(Interval other){
