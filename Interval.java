@@ -9,7 +9,7 @@ public class Interval{
 
     public DateTime GetStartTime() {
         return startTime;
-    };
+    }
     public DateTime GetEndTime() {
         return endTime;
     }
@@ -59,7 +59,7 @@ public class Interval{
     public Interval(DateTime sTime, DateTime eTime, int intersectType) { startTime = sTime; SetEndTime(eTime); SetIntersectType(intersectType); }
     public Interval(DateTime sTime, DateTime eTime, Task refferedTask) { startTime = sTime; SetEndTime(eTime); this.refferedTask = refferedTask; }
     public Interval(DateTime sTime, TimeSpan dur) { startTime = sTime; SetDuration(dur); }
-    public Interval(Interval toCopy) { startTime = toCopy.GetStartTime(); SetEndTime(toCopy.GetEndTime()); }
+    public Interval(Interval toCopy) { startTime = toCopy.GetStartTime(); SetEndTime(toCopy.GetEndTime()); intesectType = toCopy.intesectType; refferedTask = toCopy.refferedTask; }
     public Interval(DateTime date, int sHour, int sMin, int eHour, int eMin){
         startTime = new DateTime(date.GetYear(), date.GetMonth(), date.GetDay(), sHour, sMin);
         SetEndTime(new DateTime(date.GetYear(), date.GetMonth(), date.GetDay(), eHour, eMin));
@@ -163,7 +163,7 @@ public class Interval{
 
     public static ArrayList<Interval> Crop(ArrayList<Interval> times, Interval toInterval){
         //times = UnifyAll(times);
-        ArrayList<Interval> R = new ArrayList<Interval>();
+        ArrayList<Interval> R = new ArrayList<>();
         for(int i = 0; i<times.size(); i++){
             Interval intersect = times.get(i).Intersect(toInterval);
             if(intersect != null){
