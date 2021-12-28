@@ -92,6 +92,8 @@ public class DateTime {
         min += hour * minutesInHour;
         min += minute;
 
+        if(min<0) min = 0;
+
         this.minutes = min;
     }
 
